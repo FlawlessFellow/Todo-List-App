@@ -5,10 +5,10 @@ interface TodoInputProps {
 }
 
 const TodoInput: React.FC<TodoInputProps> = ({ handleAddTodo }) => {
-    const [newTitle, setNewTitle] = useState('');
-    const [newDescription, setNewDescription] = useState('');
+    const [newTitle, setNewTitle] = useState<string>('');
+    const [newDescription, setNewDescription] = useState<string>('');
 
-    const onAddClick = () => {
+    const onAddClick = (): void => {
         handleAddTodo(newTitle, newDescription);
         setNewTitle('');
         setNewDescription('');

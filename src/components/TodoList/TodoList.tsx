@@ -1,13 +1,6 @@
 import { AiOutlineDelete } from 'react-icons/ai';
 import { BsCheckLg } from 'react-icons/bs';
-
-interface Todo {
-    id: string;
-    title: string;
-    description: string;
-    isComplete: boolean;
-    createdOn: string;
-}
+import { Todo } from '../../types/types';
 
 interface TodoListProps {
     todos: Todo[];

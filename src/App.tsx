@@ -3,20 +3,13 @@ import './App.css';
 import TodoInput from './components/TodoInput/TodoInput';
 import ButtonArea from './components/ButtonArea/ButtonArea';
 import TodoList from './components/TodoList/TodoList';
-
-interface Todo {
-    id: string;
-    title: string;
-    description: string;
-    isComplete: boolean;
-    createdOn: string;
-}
+import { Todo } from './types/types';
 
 function App() {
-    const [isCompleteScreen, setIsCompleteScreen] = useState(false);
+    const [isCompleteScreen, setIsCompleteScreen] = useState<boolean>(false);
     const [todos, setTodos] = useState<Todo[]>([]);
 
-    const handleAddTodo = (title: string, description: string) => {
+    const handleAddTodo = (title: string, description: string): void => {
         const newTodoItem: Todo = {
             id: Date.now().toString(),
             title,
@@ -27,7 +20,7 @@ function App() {
         setTodos((prevTodos) => [...prevTodos, newTodoItem]);
     };
 
-    const toggleComplete = (id: string) => {
+    const toggleComplete = (id: string): void => {
         setTodos((prevTodos) =>
             prevTodos.map((todo) => {
                 if (todo.id === id) {
@@ -42,7 +35,7 @@ function App() {
         );
     };
 
-    const deleteTodo = (id: string) => {
+    const deleteTodo = (id: string): void => {
         setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
     };
 
